@@ -1,0 +1,37 @@
+<div class="fragment">
+  <button class="mobile-settings-button" v-on:click="openModalAsync"></button>
+
+  <portal to="modals">
+    <div class="modal-wrapper" v-if="modalOpen">
+      <div class="modal mobile-settings-modal">
+        <header>
+          <span>Settings</span>
+          <button type="button"
+                  class="modal-close-button"
+                  v-on:click="closeModal"></button>
+        </header>
+        <div>
+          <form class="modal-body">
+            <fieldset>
+              <legend>Source</legend>
+              <div class="form-line">
+                <label>Language:</label>
+                <app-select-language v-model="options.language"></app-select-language>
+              </div>
+              <div class="form-line">
+                <label>Branch:</label>
+                <app-select-branch
+                  v-model="branch"
+                  v-bind:branches="branches"
+                  v-bind:language="options.language"></app-select-language>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Output</legend>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </portal>
+</div>

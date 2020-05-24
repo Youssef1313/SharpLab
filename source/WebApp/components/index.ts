@@ -9,3 +9,7 @@ import './app-gist-manager';
 import './app-theme-manager';
 import './app-cm6-preview-manager';
 import './app-warnings-section';
+import './app-mobile-settings';
+import './app-select';
+import './app-select-language';
+import './app-select-branch';

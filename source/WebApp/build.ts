@@ -75,16 +75,17 @@ const less = task('less', async () => {
 }, { inputs: [`${dirname}/less/**/*.less`] });
 
 const tsLint = task('tsLint', () => exec('eslint . --max-warnings 0 --ext .js,.ts'));
-
-const ts = task('ts', async () => {
-    await tsLint();
-    await exec('rollup -c');
-}, {
+const tsNoLint = task('tsNoLint', () => exec('rollup -c'), {
     inputs: [
         `${dirname}/ts/**/*.ts`,
         `${dirname}/components/**/*.ts`,
         `${dirname}/package.json`
     ]
+})
+
+const ts = task('ts', async () => {
+    await tsLint();
+    await tsNoLint();
 });
 
 const icons = task('icons', async () => {

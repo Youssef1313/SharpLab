@@ -2,7 +2,7 @@ import type { VueConstructor } from 'vue';
 import type { MirrorSharpSlowUpdateResult, MirrorSharpConnectionState } from 'mirrorsharp';
 import type { TargetName } from '../helpers/targets';
 import type { LanguageName } from '../helpers/languages';
-import type { BranchGroup, Branch } from './branch';
+import type { Branch } from './branch';
 import type { ServerOptions } from './server-options';
 import type { HighlightedRange } from './highlighted-range';
 import type { Result, CodeResult, AstResult, ExplainResult, AstItem } from './results';
@@ -20,10 +20,7 @@ export interface AppOptions {
 }
 
 export interface AppData {
-    branches: {
-        readonly groups: ReadonlyArray<BranchGroup>;
-        readonly ungrouped: ReadonlyArray<Readonly<Branch>>;
-    };
+    branches: ReadonlyArray<Branch>;
     branch: Branch|null|undefined;
 
     loadingDelay?: ReturnType<typeof setTimeout>|null;

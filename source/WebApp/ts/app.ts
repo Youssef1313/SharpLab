@@ -12,7 +12,7 @@ import { languages } from './helpers/languages';
 import { targets, TargetName } from './helpers/targets';
 import extractRangesFromIL from './helpers/extract-ranges-from-il';
 import getBranchesAsync from './server/get-branches-async';
-import { getBranchDisplayName, groupAndSortBranches } from './ui/branches';
+import { getBranchDisplayName } from './ui/branches';
 import state from './state/index';
 import url from './state/handlers/url';
 import defaults from './state/handlers/defaults';
@@ -127,10 +127,7 @@ async function createAppAsync() {
         languages,
         targets,
 
-        branches: {
-            groups: [],
-            ungrouped: []
-        },
+        branches: [],
         branch: null,
 
         online: true,
@@ -156,7 +153,7 @@ async function createAppAsync() {
         for (const branch of branches) {
             branch.displayName = getBranchDisplayName(branch);
         }
-        data.branches = groupAndSortBranches(branches);
+        data.branches = branches;
         return branches;
     })();
 

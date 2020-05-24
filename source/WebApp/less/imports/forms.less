@@ -13,6 +13,7 @@ input {
 select,
 label,
 input,
+legend,
 .header-text-button,
 .form-button,
 .form-line {
@@ -45,12 +46,20 @@ option, optgroup {
     }
 }
 
+fieldset {
+    border: none;
+    padding: 0;
+}
+
 .form-line {
     display: flex;
     align-items: center;
-    & + & {
-        margin-top: 10px;
-    }
+}
+
+fieldset + fieldset,
+legend + .form-line,
+.form-line + .form-line {
+    margin-top: 10px;
 }
 
 .form-errors {

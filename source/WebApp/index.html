@@ -26,16 +26,16 @@
       'root-status-offline': !status.online,
       'root-status-error':   status.error
     }">
+      <app-mobile-settings
+          v-bind:options="options"
+          v-bind:branch="branch"
+          v-bind:branches="branches"></app-mobile-settings>
+
       <div class="top-section-group top-section-group-code">
         <section class="top-section code">
           <header>
-            <button class="mobile-menu-button" v-app-class-toggle="{ target: '.code', class: 'mobile-menu-open' }"></button>
             <h1>Code</h1>
-            <app-select v-model="options.language" class="option-language option">
-              <option v-bind:value="languages.csharp">C#</option>
-              <option v-bind:value="languages.vb">Visual Basic</option>
-              <option v-bind:value="languages.fsharp">F#</option>
-            </app-select>
+            <app-select-language v-model="options.language"></app-select-language>
             <app-gist-manager v-bind:gist="gist"
                               v-bind:code="code"
                               v-bind:options="options"
@@ -43,17 +43,9 @@
                               v-on:save="applyGistSave"></app-gist-manager>
             <div class="offline-only">[connection lost, reconnecting…]</div>
 
-            <app-select v-model="branch" class="option-branch option">
-              <option v-bind:value="null">Default</option>
-              <option v-for="branch in branches.ungrouped"
-                      v-bind:value="branch">{{branch.displayName}}</option>
-              <optgroup v-bind:label="group.name" v-for="group in branches.groups" v-show="group.kind !== 'roslyn' || options.language !== languages.fsharp">
-                <option v-for="branch in group.branches"
-                        v-bind:value="branch"
-                        v-show="branch.id !== 'core-x64-profiled' || options.language !== languages.fsharp">{{branch.displayName}}</option>
-              </optgroup>
-            </app-select>
-            <div class="mobile-menu"></div>
+            <app-select-branch v-model="branch"
+                               v-bind:branches="branches"
+                               v-bind:language="options.language"></app-select-branch>
           </header>
           <div class="content">
             <app-code-edit v-bind:initial-text="lastLoadedCode"
@@ -93,7 +85,6 @@
       <div class="top-section-group top-section-group-results" v-bind:class="{ loading: loading }">
         <section class="top-section result">
           <header>
-            <button class="mobile-menu-button" v-app-class-toggle="{ target: '.top-section-group-results', class: 'mobile-menu-open' }"></button>
             <h1>Results</h1>
 
             <app-select v-model="options.target" class="option-target-language option">
@@ -117,7 +108,6 @@
               <option v-bind:value="false">Debug</option>
               <option v-bind:value="true">Release</option>
             </app-select>
-            <div class="mobile-menu"></div>
           </header>
           <div class="content">
             <div class="loader"></div>

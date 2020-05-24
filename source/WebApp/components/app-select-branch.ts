@@ -31,7 +31,7 @@ export default Vue.component('app-select-branch', {
             this.branch = this.value;
         },
 
-        language() {
+        branch() {
             this.$emit('input', this.branch);
         }
     },

@@ -36,12 +36,8 @@
         display: block;
     }
 
-    .top-section > header {
+    .code > header, .result > header {
         display: none;
-    }
-
-    .top-section-group + .top-section-group {
-        border-top: 1px solid var(--border-color);
     }
 
     .result .CodeMirror {
@@ -50,6 +46,10 @@
 
     main + footer {
         font-size: 70%;
+    }
+
+    .top-section.branch-details {
+        display: none;
     }
 
     footer {
@@ -78,7 +78,12 @@
         }
     }
 
-    .top-section-group-results section header {
+    .top-section-group-results {
+        border-top: 1px solid var(--border-color);
+    }
+
+    .top-section-group-results section header,
+    .top-section-group-results .content {
         border-left: none;
     }
 

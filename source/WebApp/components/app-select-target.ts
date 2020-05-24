@@ -18,7 +18,7 @@ export default Vue.component('app-select-target', {
             this.target = this.value;
         },
 
-        language() {
+        target() {
             this.$emit('input', this.target);
         }
     },

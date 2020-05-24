@@ -86,28 +86,8 @@
         <section class="top-section result">
           <header>
             <h1>Results</h1>
-
-            <app-select v-model="options.target" class="option-target-language option">
-              <optgroup label="Decompile">
-                <option v-bind:value="targets.csharp">C#</option>
-                <option v-show="options.target === targets.vb" v-bind:value="targets.vb">Visual Basic</option>
-                <option v-bind:value="targets.il">IL</option>
-                <option v-bind:value="targets.asm">JIT Asm</option>
-              </optgroup>
-              <optgroup label="Other">
-                <option v-bind:value="targets.ast">Syntax Tree</option>
-                <option v-bind:value="targets.verify">Verify Only</option>
-                <option v-bind:value="targets.explain">Explain</option>
-              </optgroup>
-              <optgroup label="Experimental">
-                <option v-bind:value="targets.run">Run</option>
-              </optgroup>
-            </app-select>
-
-            <app-select v-model="options.release" class="option-optimizations option">
-              <option v-bind:value="false">Debug</option>
-              <option v-bind:value="true">Release</option>
-            </app-select>
+            <app-select-target v-model="options.target"></app-select-target>
+            <app-select-mode v-model="options.release"></app-select-mode>
           </header>
           <div class="content">
             <div class="loader"></div>

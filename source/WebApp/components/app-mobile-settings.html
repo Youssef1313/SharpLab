@@ -12,23 +12,25 @@
         </header>
         <div>
           <form class="modal-body">
-            <fieldset>
-              <legend>Source</legend>
-              <div class="form-line">
-                <label>Language:</label>
-                <app-select-language v-model="options.language"></app-select-language>
-              </div>
-              <div class="form-line">
-                <label>Branch:</label>
-                <app-select-branch
-                  v-model="branch"
-                  v-bind:branches="branches"
-                  v-bind:language="options.language"></app-select-language>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Output</legend>
-            </fieldset>
+            <div class="form-line">
+              <label>Language:</label>
+              <app-select-language v-model="options.language"></app-select-language>
+            </div>
+            <div class="form-line">
+              <label>Branch:</label>
+              <app-select-branch
+                v-model="branch"
+                v-bind:branches="branches"
+                v-bind:language="options.language"></app-select-language>
+            </div>
+            <div class="form-line">
+              <label>Mode:</label>
+              <app-select-mode v-model="options.release"></app-select-mode>
+            </div>
+            <div class="form-line">
+              <label>Output:</label>
+              <app-select-target v-model="options.target"></app-select-target>
+            </div>
           </form>
         </div>
       </div>

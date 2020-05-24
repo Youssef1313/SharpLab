@@ -13,3 +13,5 @@ import './app-mobile-settings';
 import './app-select';
 import './app-select-language';
 import './app-select-branch';
+import './app-select-mode';
+import './app-select-target';

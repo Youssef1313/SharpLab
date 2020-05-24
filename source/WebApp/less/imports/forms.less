@@ -97,16 +97,21 @@ header button, footer button {
     background: none;
 }
 
-.form-button {
+form button {
     .custom-button();
-    border: none;
     padding: 3px 6px;
-    background-color: @primary-color;
-    color: #fff;
+    background: transparent;
+    border: 1px solid var(--border-color);
 
     &[disabled] {
         background-color: var(--border-color);
     }
+}
+
+.form-button-primary {
+    border: none;
+    background-color: @primary-color;
+    color: #fff;
 }
 
 .form-aligned {

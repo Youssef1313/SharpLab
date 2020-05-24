@@ -26,6 +26,7 @@ select {
     border: none;
     appearance: none;
     padding: 1px 15px 1px 5px;
+    width: 100%;
 }
 
 option, optgroup {
@@ -35,7 +36,7 @@ option, optgroup {
 
 .select-wrapper {
     position: relative;
-    border: 1px solid var(--header-control-border-color);
+    border: 1px solid var(--border-color);
 
     &::after {
         content: '\0025be'; /* ▾ */
@@ -105,5 +106,15 @@ header button, footer button {
 
     &[disabled] {
         background-color: var(--border-color);
+    }
+}
+
+.form-aligned {
+    label {
+        min-width: 4.5em;
+    }
+
+    .select-wrapper {
+        flex-grow: 1;
     }
 }

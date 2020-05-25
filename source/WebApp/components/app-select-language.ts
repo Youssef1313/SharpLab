@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { languages, LanguageName } from '../ts/helpers/languages';
+import './app-select';
 
 export default Vue.component('app-select-language', {
     props: {

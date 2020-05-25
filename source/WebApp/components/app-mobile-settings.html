@@ -25,12 +25,12 @@
             </div>
             <app-section-branch-details v-bind:header="false" v-bind:branch="branch"></app-section-branch-details>
             <div class="form-line">
-              <label>Mode:</label>
-              <app-select-mode v-model="options.release"></app-select-mode>
-            </div>
-            <div class="form-line">
               <label>Output:</label>
               <app-select-target v-model="options.target"></app-select-target>
+            </div>
+            <div class="form-line">
+              <label>Mode:</label>
+              <app-select-mode v-model="options.release"></app-select-mode>
             </div>
             <div class="form-line">
               <app-cm6-preview-manager></app-cm6-preview-manager>

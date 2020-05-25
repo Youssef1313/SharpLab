@@ -13,10 +13,21 @@ const styles = [
     { path: `${__dirname}/../../wwwroot/app.min.css` }
 ] as const;
 
-export const cases = [
+export const themeCases = [
     ['', ''],
     [' (dark)', 'theme-dark']
 ] as const;
+
+export const cases = themeCases;
+
+export const themeAndStatusCases = [
+    ['', ''],
+    [' (error)', 'root-status-error'],
+    [' (offline)', 'root-status-offline'],
+    [' (dark)', 'theme-dark'],
+    [' (dark, error)', 'theme-dark root-status-error'],
+    [' (dark, offline)', 'theme-dark root-status-offline']
+];
 
 export function loadComponentTemplate(id: string, subDirectory = '') {
     const template = document.createElement('script');
@@ -27,10 +38,11 @@ export function loadComponentTemplate(id: string, subDirectory = '') {
     document.body.appendChild(template);
 }
 
+type RenderOptions = Parameters<typeof render>[0];
+
 export function renderComponent(view: Vue, options: {
     wrap?: (html: string) => string;
-    bodyClass?: string;
-} = {}) {
+} & Omit<RenderOptions, 'html'> = {}) {
     let html = view.$el.outerHTML;
     const { wrap, ...renderOptions } = options;
     if (wrap)

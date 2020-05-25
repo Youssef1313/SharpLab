@@ -11,8 +11,3 @@ import './app-cm6-preview-manager';
 import './app-warnings-section';
 import './app-mobile-settings';
 import './app-select';
-import './app-select-language';
-import './app-select-branch';
-import './app-select-mode';
-import './app-select-target';
-import './app-section-branch-details';

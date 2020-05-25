@@ -19,11 +19,11 @@
             <div class="form-line">
               <label>Branch:</label>
               <app-select-branch
-                v-model="branch"
+                v-model="options.branch"
                 v-bind:branches="branches"
                 v-bind:language="options.language"></app-select-branch>
             </div>
-            <app-section-branch-details v-bind:header="false" v-bind:branch="branch"></app-section-branch-details>
+            <app-section-branch-details v-bind:header="false" v-bind:branch="options.branch"></app-section-branch-details>
             <div class="form-line">
               <label>Output:</label>
               <app-select-target v-model="options.target"></app-select-target>

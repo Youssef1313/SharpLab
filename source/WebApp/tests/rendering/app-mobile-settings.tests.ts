@@ -30,7 +30,8 @@ test.each(themeCases)('modal open%s', async (_, bodyClass) => {
     const options: AppOptions = {
         language: languages.csharp,
         target: targets.il,
-        release: true
+        release: true,
+        branch: null
     };
     const parent = new Vue({
         el: document.createElement('div'),

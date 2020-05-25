@@ -13,7 +13,6 @@ import extendType from '../ts/helpers/extend-type';
 export default Vue.component('app-mobile-settings', {
     props: {
         options: Object as () => AppOptions,
-        branch: Object as () => Branch|null,
         branches: Array as () => ReadonlyArray<Branch>
     },
     data: () => extendType({

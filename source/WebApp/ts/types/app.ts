@@ -13,15 +13,14 @@ import type { CodeRange } from './code-range';
 export type AppTheme = 'light'|'dark'|'auto';
 
 export interface AppOptions {
-    readonly language: LanguageName;
-    readonly target: TargetName|string;
-    readonly release: boolean;
-    branchId?: string|null;
+    language: LanguageName;
+    target: TargetName|string;
+    release: boolean;
+    branch: Branch|null;
 }
 
 export interface AppData {
     branches: ReadonlyArray<Branch>;
-    branch: Branch|null|undefined;
 
     loadingDelay?: ReturnType<typeof setTimeout>|null;
     loading: boolean;

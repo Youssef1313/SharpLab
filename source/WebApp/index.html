@@ -28,7 +28,6 @@
     }">
       <app-mobile-settings
           v-bind:options="options"
-          v-bind:branch="branch"
           v-bind:branches="branches"></app-mobile-settings>
 
       <div class="top-section-group top-section-group-code">
@@ -43,7 +42,7 @@
                               v-on:save="applyGistSave"></app-gist-manager>
             <div class="offline-only">[connection lost, reconnecting…]</div>
 
-            <app-select-branch v-model="branch"
+            <app-select-branch v-model="options.branch"
                                v-bind:branches="branches"
                                v-bind:language="options.language"></app-select-branch>
           </header>
@@ -63,7 +62,7 @@
           </div>
         </section>
 
-        <app-section-branch-details v-bind:branch="branch" class="top-section"></app-section-branch-details>
+        <app-section-branch-details v-bind:branch="options.branch" class="top-section"></app-section-branch-details>
       </div>
 
       <div class="top-section-group top-section-group-results" v-bind:class="{ loading: loading }">

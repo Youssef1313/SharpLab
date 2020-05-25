@@ -6,6 +6,7 @@ import type { Gist } from '../ts/types/gist';
 import extendType from '../ts/helpers/extend-type';
 import auth from '../ts/helpers/github/auth';
 import { createGistAsync } from '../ts/helpers/github/gists';
+import toRawOptions from '../ts/helpers/to-raw-options';
 
 export default Vue.component('app-gist-manager', {
     props: {
@@ -56,7 +57,7 @@ export default Vue.component('app-gist-manager', {
                 gist = await createGistAsync({
                     name: this.name,
                     code: this.code,
-                    options: this.options,
+                    options: toRawOptions(this.options),
                     result: this.result
                 });
             }

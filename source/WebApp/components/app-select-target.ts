@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { targets, TargetName } from '../ts/helpers/targets';
+import './app-select';
 
 export default Vue.component('app-select-target', {
     props: {

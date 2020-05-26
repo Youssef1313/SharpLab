@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import type { AppOptions } from '../ts/types/app';
 import type { Branch } from '../ts/types/branch';
+import type { Gist } from '../ts/types/gist';
 import extendType from '../ts/helpers/extend-type';
 import { uid } from '../ts/ui/helpers/uid';
 import '../ts/ui/setup/portal-vue';

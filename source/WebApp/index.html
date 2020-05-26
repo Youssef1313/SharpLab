@@ -28,14 +28,25 @@
     }">
       <app-mobile-settings
           v-bind:options="options"
-          v-bind:branches="branches"></app-mobile-settings>
+          v-bind:branches="branches"
+          v-bind:gist="gist">
+        <template v-slot:gist-manager>
+          <app-gist-manager v-bind:gist="gist"
+                            v-bind:code="code"
+                            v-bind:options="options"
+                            v-bind:result="result"
+                            v-on:save="applyGistSave"></app-gist-manager>
+        </template>
+      </app-mobile-settings>
 
       <div class="top-section-group top-section-group-code">
         <section class="top-section code">
           <header>
             <h1>Code</h1>
             <app-select-language v-model="options.language"></app-select-language>
-            <app-gist-manager v-bind:gist="gist"
+            <app-gist-manager class="header-block"
+                              button-class="header-text-button"
+                              v-bind:gist="gist"
                               v-bind:code="code"
                               v-bind:options="options"
                               v-bind:result="result"

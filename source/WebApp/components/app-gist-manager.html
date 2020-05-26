@@ -1,6 +1,6 @@
-<div class="fragment header-block gist-manager">
+<div class="fragment gist-manager">
   <button v-show="!gist"
-          class="header-text-button gist-create"
+          v-bind:class="`${buttonClass} gist-create`"
           v-on:click="openModalAsync">Create Gist</button>
   <a class="gist-link"
      v-if="gist"
@@ -34,7 +34,7 @@
 
             <div class="form-line modal-buttons">
               <button v-bind:disabled="!canSave"
-                      class="form-button"
+                      class="form-button-action"
                       type="submit">
                 <template v-if="!saving">
                   Create Gist

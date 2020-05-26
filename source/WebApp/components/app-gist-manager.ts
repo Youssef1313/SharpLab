@@ -13,7 +13,10 @@ export default Vue.component('app-gist-manager', {
         gist: Object as () => Gist|null,
         code: String,
         options: Object as () => AppOptions,
-        result: Object as () => Result
+        result: Object as () => Result,
+
+        useLabel: Boolean,
+        buttonClass: String as () => string|null
     },
     data: () => extendType({
         modalOpen: false,

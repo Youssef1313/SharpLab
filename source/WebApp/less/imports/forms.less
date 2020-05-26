@@ -50,6 +50,27 @@ option, optgroup {
 fieldset {
     border: none;
     padding: 0;
+
+    & + & {
+        margin-top: 20px;
+    }
+}
+
+legend {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    color: var(--border-color);
+    text-transform: uppercase;
+
+    &::after {
+        content: '';
+        margin-left: 10px;
+        flex-grow: 1;
+        height: 1px;
+        border-top: 1px solid var(--border-color);
+    }
 }
 
 .form-line {
@@ -57,7 +78,6 @@ fieldset {
     align-items: center;
 }
 
-fieldset + fieldset,
 legend + .form-line,
 .form-line + .form-line {
     margin-top: 10px;
@@ -99,13 +119,16 @@ header button, footer button {
 
 form button {
     .custom-button();
-    padding: 3px 6px;
     background: transparent;
     border: 1px solid var(--border-color);
 
     &[disabled] {
         background-color: var(--border-color);
     }
+}
+
+.form-button-action {
+    padding: 3px 6px;
 }
 
 .form-button-primary {

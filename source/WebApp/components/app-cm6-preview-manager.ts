@@ -1,13 +1,12 @@
 import Vue from 'vue';
+import { uid } from '../ts/ui/helpers/uid';
 import { cm6PreviewState, setCM6PreviewEnabled } from './state/cm6-preview';
-
-let id = 1;
 
 export default Vue.component('app-cm6-preview-manager', {
     data: () => ({
         preview: cm6PreviewState,
         // eslint-disable-next-line no-plusplus
-        id: id++
+        id: uid()
     }),
     computed: {
         editorName() {

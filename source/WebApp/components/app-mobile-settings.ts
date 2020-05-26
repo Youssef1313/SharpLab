@@ -1,4 +1,8 @@
 import Vue from 'vue';
+import type { AppOptions } from '../ts/types/app';
+import type { Branch } from '../ts/types/branch';
+import extendType from '../ts/helpers/extend-type';
+import { uid } from '../ts/ui/helpers/uid';
 import '../ts/ui/setup/portal-vue';
 import './app-select-language';
 import './app-select-branch';
@@ -6,9 +10,6 @@ import './app-section-branch-details';
 import './app-select-target';
 import './app-select-mode';
 import './app-cm6-preview-manager';
-import type { AppOptions } from '../ts/types/app';
-import type { Branch } from '../ts/types/branch';
-import extendType from '../ts/helpers/extend-type';
 
 export default Vue.component('app-mobile-settings', {
     props: {
@@ -16,7 +17,8 @@ export default Vue.component('app-mobile-settings', {
         branches: Array as () => ReadonlyArray<Branch>
     },
     data: () => extendType({
-        modalOpen: false
+        modalOpen: false,
+        id: uid()
     })<{
         escListener: (e: KeyboardEvent) => void;
     }>(),

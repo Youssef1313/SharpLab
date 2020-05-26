@@ -4,6 +4,7 @@ import './app-select';
 
 export default Vue.component('app-select-target', {
     props: {
+        id: String as () => string|null,
         value: String as () => TargetName
     },
 

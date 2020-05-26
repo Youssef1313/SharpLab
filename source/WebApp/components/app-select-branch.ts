@@ -5,6 +5,7 @@ import { languages, LanguageName } from '../ts/helpers/languages';
 
 export default Vue.component('app-select-branch', {
     props: {
+        id: String as () => string|null,
         value: Object as () => Branch|null,
         branches: Array as () => ReadonlyArray<Branch>,
         language: String as () => LanguageName

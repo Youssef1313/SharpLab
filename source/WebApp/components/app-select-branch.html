@@ -1,4 +1,4 @@
-<app-select v-model="branch" class="option-branch option">
+<app-select v-model="branch" class="option-branch option" v-bind:id="id">
   <option v-bind:value="null">Default</option>
   <option v-for="branch in ungrouped"
           v-bind:value="branch">{{branch.displayName}}</option>

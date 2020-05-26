@@ -4,6 +4,7 @@ import './app-select';
 
 export default Vue.component('app-select-language', {
     props: {
+        id: String as () => string|null,
         value: String as () => LanguageName
     },
 
@@ -25,7 +26,7 @@ export default Vue.component('app-select-language', {
     },
 
     template: `
-        <app-select v-model="language" class="option-language option">
+        <app-select v-model="language" class="option-language option" v-bind:id="id">
             <option v-bind:value="languages.csharp">C#</option>
             <option v-bind:value="languages.vb">Visual Basic</option>
             <option v-bind:value="languages.fsharp">F#</option>

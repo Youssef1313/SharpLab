@@ -35,6 +35,7 @@
                             v-bind:code="code"
                             v-bind:options="options"
                             v-bind:result="result"
+                            v-bind:use-label="true"
                             v-on:save="applyGistSave"></app-gist-manager>
         </template>
       </app-mobile-settings>
@@ -126,7 +127,7 @@
         <app-warnings-section v-bind:warnings="result.warnings"></app-warnings-section>
       </div>
 
-      <portal-target name="modals" multiple slim></portal-target>
+      <portal-target name="modals" multiple></portal-target>
     </main>
     <footer>
       <app-cm6-preview-manager></app-cm6-preview-manager>

@@ -1,13 +1,14 @@
 <div class="fragment gist-manager">
+  <label v-if="useLabel">Gist:</label>
   <button v-show="!gist"
           v-bind:class="`${buttonClass} gist-create`"
-          v-on:click="openModalAsync">Create Gist</button>
+          v-on:click="openModalAsync">{{useLabel ? 'Create' : 'Create Gist'}}</button>
   <a class="gist-link"
      v-if="gist"
      v-bind:href="gist.url"
      v-bind:title="`Gist: ${gist.name}`"
      target="_blank"
-     rel="noopener">Gist: {{gist.name}}</a>
+     rel="noopener">{{useLabel ? gist.name : `Gist: ${gist.name}`}}</a>
 
   <portal to="modals">
     <div class="modal-wrapper" v-if="modalOpen">

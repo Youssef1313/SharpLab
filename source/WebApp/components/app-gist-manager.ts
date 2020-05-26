@@ -8,6 +8,10 @@ import auth from '../ts/helpers/github/auth';
 import { createGistAsync } from '../ts/helpers/github/gists';
 import toRawOptions from '../ts/helpers/to-raw-options';
 
+// only doing it once per page load, even if
+// multiple app-gist-managers are created
+let postAuthRedirectModalOpened = false;
+
 export default Vue.component('app-gist-manager', {
     props: {
         gist: Object as () => Gist|null,
@@ -30,8 +34,10 @@ export default Vue.component('app-gist-manager', {
         canSave(): boolean { return !!this.name && !this.saving; }
     },
     async mounted() {
-        if (auth.isBackFromRedirect)
+        if (auth.isBackFromRedirect && !postAuthRedirectModalOpened) {
+            postAuthRedirectModalOpened = true;
             await this.openModalAsync();
+        }
     },
     methods: {
         async openModalAsync() {

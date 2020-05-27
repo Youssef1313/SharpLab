@@ -7,6 +7,7 @@ import extendType from '../ts/helpers/extend-type';
 import auth from '../ts/helpers/github/auth';
 import { createGistAsync } from '../ts/helpers/github/gists';
 import toRawOptions from '../ts/helpers/to-raw-options';
+import { uid } from '../ts/ui/helpers/uid';
 
 // only doing it once per page load, even if
 // multiple app-gist-managers are created
@@ -23,6 +24,7 @@ export default Vue.component('app-gist-manager', {
         buttonClass: String as () => string|null
     },
     data: () => extendType({
+        id: uid(),
         modalOpen: false,
         name: null as string|null,
         saving: false,

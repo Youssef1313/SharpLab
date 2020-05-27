@@ -1,4 +1,4 @@
-<section v-if="branch && branch.commits" class="details-only branch-details non-code">
+<section v-if="branch && branch.commits" class="details-only branch-details non-code block-section">
   <header v-if="header">
     <button class="expander" v-app-class-toggle="{ target: '.branch-details', class: 'collapsed' }"></button>
     <h1>Branch {{branch.displayName}}</h1>

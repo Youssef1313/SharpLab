@@ -18,8 +18,6 @@ export const themeCases = [
     [' (dark)', 'theme-dark']
 ] as const;
 
-export const cases = themeCases;
-
 export const themeAndStatusCases = [
     ['', ''],
     [' (error)', 'root-status-error'],

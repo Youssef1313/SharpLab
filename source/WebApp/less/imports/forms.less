@@ -105,21 +105,17 @@ input {
 }
 
 button {
+    appearance: none;
+    border-radius: 0;
     cursor: pointer;
-}
-
-header button, footer button {
-    .custom-button();
+    background: none;
 }
 
 .header-text-button {
     border: 1px solid var(--header-control-border-color);
-    background: none;
 }
 
 form button {
-    .custom-button();
-    background: transparent;
     border: 1px solid var(--border-color);
 
     &[disabled] {
@@ -127,11 +123,8 @@ form button {
     }
 }
 
-.form-button-action {
-    padding: 3px 6px;
-}
-
 .form-button-primary {
+    padding: 3px 6px;
     border: none;
     background-color: @primary-color;
     color: #fff;

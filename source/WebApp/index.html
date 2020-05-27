@@ -39,6 +39,7 @@
                             v-on:save="applyGistSave"></app-gist-manager>
         </template>
       </app-mobile-settings>
+      <div class="mobile-offline-notice">connection lost, reconnecting…</div>
 
       <div class="top-section-group top-section-group-code">
         <section class="top-section code">
@@ -127,7 +128,7 @@
         <app-warnings-section v-bind:warnings="result.warnings"></app-warnings-section>
       </div>
 
-      <portal-target name="modals" multiple></portal-target>
+      <portal-target name="modals" multiple class="fragment"></portal-target>
     </main>
     <footer>
       <app-cm6-preview-manager></app-cm6-preview-manager>

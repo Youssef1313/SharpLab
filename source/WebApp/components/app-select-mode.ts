@@ -21,7 +21,7 @@ export default Vue.component('app-select-mode', {
     },
 
     template: `
-        <app-select v-model="release" class="option-optimizations option" v-bind:id="id">
+        <app-select v-model="release" class="option-optimizations option online-only" v-bind:id="id">
             <option v-bind:value="false">Debug</option>
             <option v-bind:value="true">Release</option>
         </app-select>

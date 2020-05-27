@@ -11,5 +11,4 @@ import './app-cm6-preview-manager';
 import './app-section-warnings';
 import './app-section-branch-details';
 import './app-mobile-settings';
-import './app-mobile-warnings';
 import './app-select';

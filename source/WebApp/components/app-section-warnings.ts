@@ -5,11 +5,7 @@ import './app-diagnostic';
 
 export default Vue.component('app-section-warnings', {
     props: {
-        warnings: Array as () => ReadonlyArray<DiagnosticWarning>,
-        header: {
-            type: Boolean,
-            default: true
-        }
+        warnings: Array as () => ReadonlyArray<DiagnosticWarning>
     },
     template: '#app-section-warnings'
 });

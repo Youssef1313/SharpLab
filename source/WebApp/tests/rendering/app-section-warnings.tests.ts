@@ -1,4 +1,4 @@
-import WarningsSection from '../../components/app-warnings-section';
+import WarningsSection from '../../components/app-section-warnings';
 import { fromPartial } from '../helpers';
 import { cases, loadComponentTemplate, renderComponent, PickPropTypes } from './helpers';
 

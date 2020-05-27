@@ -1,0 +1,19 @@
+<div class="fragment" v-if="warnings.length > 0">
+  <button class="mobile-warnings-button" v-on:click="openModalAsync"></button>
+
+  <portal to="modals">
+    <div class="modal-wrapper" v-if="modalOpen">
+      <div class="modal mobile-warnings-modal">
+        <header>
+          <span>Warnings</span>
+          <button type="button"
+                  class="modal-close-button"
+                  v-on:click="closeModal"></button>
+        </header>
+        <div>
+          <app-section-warnings v-bind:warnings="warnings" v-bind:header="false"></app-section-warnings>
+        </div>
+      </div>
+    </div>
+  </portal>
+</div>

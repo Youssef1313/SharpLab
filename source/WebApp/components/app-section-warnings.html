@@ -1,5 +1,5 @@
-<section class="top-section warnings collapsed" v-show="warnings.length > 0">
-  <header>
+<section class="warnings" v-show="warnings.length > 0">
+  <header v-if="header">
     <button class="expander" v-app-class-toggle="{ target: '.warnings', class: 'collapsed' }"></button>
     <h1>Warnings</h1>
   </header>

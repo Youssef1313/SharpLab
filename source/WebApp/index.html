@@ -125,7 +125,8 @@
           </div>
         </section>
 
-        <app-warnings-section v-bind:warnings="result.warnings"></app-warnings-section>
+        <app-section-warnings class="top-section collapsed" v-bind:warnings="result.warnings"></app-section-warnings>
+        <app-mobile-warnings v-bind:warnings="result.warnings"></app-mobile-warnings>
       </div>
 
       <portal-target name="modals" multiple class="fragment"></portal-target>

@@ -5,7 +5,10 @@ import { themeCases, loadComponentTemplate, renderComponent, PickPropTypes } fro
 
 jest.mock('../../ts/helpers/github/auth');
 
-beforeEach(() => loadComponentTemplate('app-gist-manager'));
+beforeEach(() => {
+    loadComponentTemplate('app-modal', 'internal');
+    loadComponentTemplate('app-gist-manager');
+});
 
 test.each(themeCases)('no gist%s', async (_, bodyClass) => {
     const manager = createManager({ gist: null });

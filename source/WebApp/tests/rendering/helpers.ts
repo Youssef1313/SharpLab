@@ -40,8 +40,17 @@ type RenderOptions = Parameters<typeof render>[0];
 
 export function renderComponent(view: Vue, options: {
     wrap?: (html: string) => string;
+    allowEmpty?: boolean;
 } & Omit<RenderOptions, 'html'> = {}) {
-    let html = view.$el.outerHTML;
+    let html = view.$el.outerHTML as string|undefined;
+    if (!html) {
+        if (!options.allowEmpty) {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            throw new Error(`Failed to render component (html: ${html})`);
+        }
+        html = '';
+    }
+
     const { wrap, ...renderOptions } = options;
     if (wrap)
         html = wrap(html);

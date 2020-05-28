@@ -27,6 +27,7 @@
       "<rootDir>/ts/polyfills/index.ts"
     ],
     "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.ts",
       "<rootDir>/tests/rendering/setup.ts"
     ],
     "testMatch": [

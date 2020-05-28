@@ -7,7 +7,7 @@ beforeEach(() => loadComponentTemplate('app-section-branch-details'));
 test.each(themeCases)('empty%s', async (_, bodyClass) => {
     const section = createSection({ branch: null });
 
-    const rendered = await renderComponent(section, { bodyClass });
+    const rendered = await renderComponent(section, { bodyClass, allowEmpty: true });
 
     expect(rendered).toMatchImageSnapshot();
 });

@@ -5,9 +5,9 @@ import { targets } from '../../ts/helpers/targets';
 import MobileSettings from '../../components/app-mobile-settings';
 import { fromPartial } from '../helpers';
 import { themeCases, themeAndStatusCases, loadComponentTemplate, renderComponent, PickPropTypes } from './helpers';
-import { lastWarnError } from './setup';
 
 beforeEach(() => {
+    loadComponentTemplate('app-modal', 'internal');
     loadComponentTemplate('app-select-branch');
     loadComponentTemplate('app-section-branch-details');
     loadComponentTemplate('app-select-target');
@@ -18,7 +18,7 @@ beforeEach(() => {
 const mobileSize = { width: 400, height: 800 };
 
 test.each(themeAndStatusCases)('button%s', async (_, bodyClass) => {
-    const settings = createSettings(fromPartial({}));
+    const settings = createSettings({ options: fromPartial({}) });
 
     const rendered = await renderComponent(settings, { bodyClass, ...mobileSize });
 
@@ -44,12 +44,10 @@ test.each(themeCases)('modal open%s', async (_, bodyClass) => {
     });
 
     const settings = parent.$children[0];
-    await (settings as InstanceType<typeof MobileSettings>).openModalAsync();
+    (settings as InstanceType<typeof MobileSettings>).openModal();
     await Vue.nextTick();
 
     const rendered = await renderComponent(parent, { bodyClass, ...mobileSize });
-    if (lastWarnError) // portal eats background warn-as-error
-        throw lastWarnError;
 
     parent.$destroy();
     expect(rendered).toMatchImageSnapshot();
